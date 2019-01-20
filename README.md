@@ -17,9 +17,12 @@
 2.角色分配权限<br> 
 
 
-![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/login.png)  
-
-
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/login.png)  <br>
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/main.png)  <br>
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/menu.png)  <br>
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/register.png)  <br>
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/suojin.png)  <br>
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/user.png)  <br>
 
 
 
