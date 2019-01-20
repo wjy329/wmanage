@@ -1,5 +1,5 @@
 # wmanage
-##基于Spring Boot+MyBatis+Shiro+LayUI的后台管理系统
+## 基于Spring Boot+MyBatis+Shiro+LayUI的后台管理系统
 
 之前也抽出一个系统，但是发现问题很多，毕竟不是自己的，现在这个从头构建，刚有起色，哈哈。<br>  
 目前实现的功能有：<br>  
@@ -17,7 +17,7 @@
 2.角色分配权限<br> 
 
 
-
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/login.png)  
 
 
 
