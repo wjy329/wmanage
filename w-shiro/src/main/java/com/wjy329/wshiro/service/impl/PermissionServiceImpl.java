@@ -194,6 +194,12 @@ public class PermissionServiceImpl implements PermissionService{
 
     }
 
+    @Override
+    public List<RolePerm> getSelectedByRid(Integer rid) {
+       List<RolePerm> rolePerms = rolePermDao.getRolePermByRid(rid);
+       return rolePerms;
+    }
+
     /** 
     * @description 返回shiro的格式， perms[user:add]
     * @param  

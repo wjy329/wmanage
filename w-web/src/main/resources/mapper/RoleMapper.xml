@@ -9,7 +9,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        rid, rrname, note
+        rid, rname, note
     </sql>
 
     <select id="findRoleByUid" parameterType="Integer" resultMap="BaseResultMap">
@@ -42,7 +42,7 @@
         where rid = #{rid,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.wjy329.wshiro.entity.Role">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+        <selectKey keyProperty="rid" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into role (rname, note)
@@ -140,7 +140,7 @@
     </delete>
 
     <insert id="insertUserRole" >
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+        <selectKey keyProperty="rid" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO user_role VALUES(#{uid,jdbcType=INTEGER},#{rid,jdbcType=INTEGER});

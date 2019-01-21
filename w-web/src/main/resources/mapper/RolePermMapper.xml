@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wjy329.wshiro.dao.RolePermDao">
     <resultMap id="BaseResultMap" type="com.wjy329.wshiro.entity.RolePerm">
-        <id column="id" jdbcType="BIGINT" property="pid" />
+        <id column="id" jdbcType="BIGINT" property="id" />
         <result column="rid" jdbcType="INTEGER" property="rId" />
         <result column="pid" jdbcType="INTEGER" property="pId" />
     </resultMap>
@@ -14,4 +14,16 @@
         insert into role_permission (rid, pid)
         values ( #{rId,jdbcType=BIGINT}, #{pId,jdbcType=BIGINT})
     </insert>
+
+    <select id="getRolePermByRid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT *
+        FROM role_permission
+        WHERE
+        rid = #{rId,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteRolePermByRid" parameterType="java.lang.Integer">
+        delete from role_permission
+        where rid = #{rId,jdbcType=INTEGER}
+    </delete>
 </mapper>

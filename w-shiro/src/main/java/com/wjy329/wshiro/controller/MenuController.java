@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.wjy329.wcommon.constant.ResultCode;
 import com.wjy329.wcommon.utils.WebUtils;
 import com.wjy329.wshiro.entity.Permission;
+import com.wjy329.wshiro.entity.RolePerm;
 import com.wjy329.wshiro.model.Menus;
 import com.wjy329.wshiro.model.Tree;
 import com.wjy329.wshiro.service.PermissionService;
@@ -102,6 +103,13 @@ public class MenuController {
             System.out.println(e.getMessage());
             return WebUtils.getInstance().writeMsg(ResultCode.ERROR, "删除失败");
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/sel/{rid}",method=RequestMethod.GET)
+    public String getSelMenuIdByRoleId(@PathVariable Integer rid){
+        List<RolePerm> rolePerms = permissionService.getSelectedByRid(rid);
+        return WebUtils.getInstance().writeData(ResultCode.OK,rolePerms);
     }
 
 }

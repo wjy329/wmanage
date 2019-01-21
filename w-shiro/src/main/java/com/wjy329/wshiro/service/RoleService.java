@@ -87,4 +87,11 @@ public interface RoleService {
      */
     public List<String> getRolesNameByUid(Long uid);
 
+    /**
+     * @description 根据rid查找role
+     * @author wjy329
+     * @Date 2019/1/21
+     */
+    Role findRoleByRid(Integer rid);
+
 }

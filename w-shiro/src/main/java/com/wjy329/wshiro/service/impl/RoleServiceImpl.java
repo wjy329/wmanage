@@ -72,16 +72,16 @@ public class RoleServiceImpl implements RoleService{
     }
 
     @Override
-    public JSONArray queryByPage(String rolename) {
+    public JSONArray queryByPage(String rname) {
         // 判断条数
         Integer total = 0;
         // 查询分页数据
         List<Role> result = null;
 
-        if (!StringUtils.isEmpty(rolename)) {
-            rolename = "%" + rolename + "%";
-            total = this.roleDao.getRoleCntByName(rolename);
-            result = this.roleDao.queryPageByName(SystemPageContext.getPageInfo(), rolename);
+        if (!StringUtils.isEmpty(rname)) {
+            rname = "%" + rname + "%";
+            total = this.roleDao.getRoleCntByName(rname);
+            result = this.roleDao.queryPageByName(SystemPageContext.getPageInfo(), rname);
         } else {
             total = this.roleDao.getAllRoleCnt();
             result = this.roleDao.queryPage(SystemPageContext.getPageInfo());
@@ -186,5 +186,10 @@ public class RoleServiceImpl implements RoleService{
         }
 
         return names;
+    }
+
+    @Override
+    public Role findRoleByRid(Integer rid) {
+        return roleDao.getRoleById(rid);
     }
 }
