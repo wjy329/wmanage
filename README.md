@@ -16,13 +16,20 @@
 1.角色管理<br>  
 2.角色分配权限<br> 
 
-
+登录界面：<br>
 ![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/login.png)  <br>
+主界面：<br>
 ![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/main.png)  <br>
+菜单/权限界面：<br>
 ![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/menu.png)  <br>
+注册界面：<br>
 ![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/register.png)  <br>
+左侧导航隐藏：<br>
 ![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/suojin.png)  <br>
+用户界面：<br>
 ![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/user.png)  <br>
+角色分配权限界面：<br>
+![](https://github.com/wjy329/wmanage/raw/master/w-web/src/main/resources/picture/quanxian.png)  <br>
 
 
 
