@@ -101,8 +101,7 @@ public class IndexController {
     }
 
     @RequestMapping("/test")
-    @ResponseBody
     public String test(){
-        return "test page";
+        return "/test";
     }
 }

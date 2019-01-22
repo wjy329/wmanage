@@ -6,7 +6,7 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="href" jdbcType="VARCHAR" property="href" />
     <result column="code" jdbcType="VARCHAR" property="code" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="type" jdbcType="INTEGER" property="type" />
     <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="orders" jdbcType="INTEGER" property="orders" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
@@ -20,6 +20,14 @@
     SELECT
     <include refid="Base_Column_List"/>
     from permission ORDER BY  parent_id ,orders;
+  </select>
+
+  <select id="getAllMenuUrls" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from permission
+    where TYPE  = 0
+    ORDER BY  parent_id ,orders;
   </select>
 
   <select id="getByPid" resultMap="BaseResultMap">
@@ -81,6 +89,9 @@
       <if test="code != null">
         code = #{code,jdbcType=VARCHAR},
       </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
       <if test="parentId != null">
         parent_id = #{parentId,jdbcType=BIGINT},
       </if>
@@ -105,6 +116,21 @@
     t4.pid=t3.pid
     AND
     t1.uid = #{uid,jdbcType=INTEGER}
+  </select>
+
+  <select id="getMenuUrlsByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select t3.*
+    from user t1,user_role t2,permission t3,role_permission t4
+    WHERE
+    t1.uid=t2.uid
+    and
+    t2.rid=t4.rid
+    AND
+    t4.pid=t3.pid
+    AND
+    t1.uid = #{uid,jdbcType=INTEGER}
+    AND
+    type = 0
   </select>
 
   <select id="getPermByRid" parameterType="java.lang.Integer" resultType="com.wjy329.wshiro.entity.Permission">

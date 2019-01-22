@@ -1,5 +1,6 @@
 package com.wjy329.wshiro.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.wjy329.wshiro.service.PermissionService;
 import com.wjy329.wshiro.service.RolePermService;
 import org.apache.commons.collections.map.HashedMap;
@@ -90,5 +91,13 @@ public class ShiroConfig {
         return new CredentialMatcher();
     }
 
+
+    @Bean(name = "shiroDialect")
+
+    public ShiroDialect shiroDialect(){
+
+        return new ShiroDialect();
+
+    }
 
 }

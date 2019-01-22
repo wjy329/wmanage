@@ -10,17 +10,20 @@ import java.util.List;
 public interface PermissionDao {
     /**
     * @description  获取所有的权限信息
-    * @param
-    * @return
     * @author wjy329
     * @Date 2019/1/13
     */
     List<Permission> getAllUrls();
 
+    /**
+    * @description 查找全部的菜单类型的url
+    * @author wjy329
+    * @Date 2019/1/22
+    */
+    List<Permission> getAllMenuUrls();
+
     /** 
     * @description 根据id查找权限
-    * @param  
-    * @return  
     * @author wjy329
     * @Date 2019/1/15 
     */ 
@@ -52,6 +55,13 @@ public interface PermissionDao {
     int update(Permission permission);
 
     List<Permission> queryPermByUid(Integer uid);
+
+    /**
+    * @description 根据uid获取菜单类型的urls
+    * @author wjy329
+    * @Date 2019/1/22
+    */
+    List<Permission> getMenuUrlsByUid(Integer uid);
 
     /**
     * @description 根据角色id查找权限

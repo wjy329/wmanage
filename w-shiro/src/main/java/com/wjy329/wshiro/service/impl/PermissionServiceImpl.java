@@ -46,7 +46,7 @@ public class PermissionServiceImpl implements PermissionService{
         List<Permission> result = new ArrayList<>();
         //当是管理员的情况,获取所有的菜单信息
         if(SecurityUtils.getSubject().hasRole(Constants.ADMIN_ROLE)){
-            entitys = this.permissionDao.getAllUrls();
+            entitys = this.permissionDao.getAllMenuUrls();
             for(Permission entity : entitys){
                 if(entity.getPid().intValue() != 0){
                     result.add(entity);
@@ -56,7 +56,7 @@ public class PermissionServiceImpl implements PermissionService{
             //其他系统的情况，根据用户的id来查询菜单信息
             User user = (User) SecurityUtils.getSubject().getSession().getAttribute(Constants.LOGIN_USER);
             //根据用户的id来查找到菜单信息
-            entitys = this.permissionDao.queryPermByUid(user.getUid());
+            entitys = this.permissionDao.getMenuUrlsByUid(user.getUid());
             for(Permission entity : entitys){
                 if(entity.getPid().intValue() != 0){
                     result.add(entity);
@@ -136,6 +136,7 @@ public class PermissionServiceImpl implements PermissionService{
         entity.setTitle(permission.getTitle());
         entity.setOrders(permission.getOrders());
         entity.setIcon(permission.getIcon());
+        entity.setType(permission.getType());
         this.permissionDao.update(entity);
     }
 
@@ -172,6 +173,7 @@ public class PermissionServiceImpl implements PermissionService{
         entity.setTitle(permission.getTitle());
         entity.setCode(permission.getCode());
         entity.setOrders(permission.getOrders());
+        entity.setType(permission.getType());
         //设定默认的按钮
         String icon = permission.getIcon();
         entity.setIcon(StringUtils.isEmpty(icon)?Constants.DEFAULT_ICON:icon);

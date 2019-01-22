@@ -76,6 +76,7 @@ layui.config({
             ,{field:'title', title: '菜单名称'}
             ,{field:'href',  title: '链接地址'}
             ,{field:'code',  title: '权限标识'}
+            ,{field:'type', title: '菜单类型',templet: "#menuType"}
             ,{field:'orders',  title: '菜单排序'}
             ,{field:'icon', title: '菜单图标' ,templet: "#iconTpl" }
             ,{fixed:'right',  align:'center', toolbar: '#barDemo'}
@@ -104,9 +105,10 @@ layui.config({
                     //连接
                     body.find('input[name="href"]').val(data.href);
                     body.find('input[name="code"]').val(data.code);
+                    body.find("input[name='type'][value='" + data.type +"']").prop('checked',true);
                     body.find('input[name="orders"]').val(data.orders);
                     body.find('input[name="icon"]').val(data.icon);
-
+                    form.render();
                 },end:function(){ //farme销毁后  更新 列表
                     var t = $("#tree");
                     $.ajax({
@@ -267,8 +269,7 @@ layui.config({
         }
 
         if(nodes[0].level >1){
-            layer.msg("目前最多支持二级菜单，请重新选择父节点！！！", {time: 2000, icon:2});
-            return false;
+            layer.msg("目前二级菜单最多支持添加按钮类型，添加菜单类型无法显示！！！", {time: 2000, icon:2,offset: 'rb'});
         }
         var data = nodes[0];
         //开启添加界面

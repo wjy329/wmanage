@@ -41,7 +41,7 @@ public class Permission {
      * 权限类型  menu   button
 
      * */
-    private String type;
+    private Integer type;
 
     /**
      * 父类id
@@ -84,11 +84,11 @@ public class Permission {
         this.code = code;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
